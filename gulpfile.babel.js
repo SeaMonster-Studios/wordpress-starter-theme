@@ -11,10 +11,9 @@ import buffer from "vinyl-buffer";
 
 const bSync = browserSync.create();
 
-const vhost =
-  "https://127.0.0.1:5912/?_fd=0&fts=0&preview_theme_id=41958047834";
+const vhost = "http://wpstart.lmac";
 
-const distDir = "theme/assets/";
+const distDir = "assets/build";
 
 gulp.task("env:set", function envSet(done) {
   gutil.env.production
@@ -24,9 +23,9 @@ gulp.task("env:set", function envSet(done) {
 });
 
 // https://medium.com/@zymnytskiy/how-to-setup-gulp-with-es7-and-react-41b0dcb73d65
-gulp.task("react", function react() {
+gulp.task("scripts", function scripts() {
   let main = browserify({
-    entries: `src/index.js`,
+    entries: `src/scripts/index.js`,
     debug: true
   })
     .transform("babelify", {
@@ -47,19 +46,19 @@ gulp.task("react", function react() {
       );
       this.emit("end");
     })
-    .pipe(source("react-app.bundle.js"))
+    .pipe(source("scripts.bundle.js"))
     .pipe(buffer());
 
   return process.env.NODE_ENV === "production"
     ? main
         .pipe(sourcemaps.init({ loadMaps: true })) // load browserify's sourcemaps
         .pipe(uglify())
-        .pipe(rename("react-app.bundle.min.js"))
+        .pipe(rename("scripts.bundle.min.js"))
         .pipe(sourcemaps.write(".")) // write .map files near scripts
         .pipe(gulp.dest(distDir))
     : main
         .pipe(sourcemaps.init({ loadMaps: true })) // load browserify's sourcemaps
-        .pipe(concat("react-app.bundle.js"))
+        .pipe(concat("scripts.bundle.js"))
         .pipe(sourcemaps.write(".")) // write .map files near scripts
         .pipe(gulp.dest(distDir))
         .pipe(bSync.stream());
@@ -75,16 +74,16 @@ gulp.task("watch", function watch() {
         }
       }
     ],
-    port: 8181,
+    port: 8210,
     logPrefix: vhost,
     notify: false,
     proxy: vhost,
     reloadOnRestart: true
   });
 
-  gulp.watch(`src/**`, gulp.series("react"));
-  gulp.watch("theme/**").on("change", bSync.reload);
+  gulp.watch(`src/**`, gulp.series("scripts"));
+  gulp.watch("./*.php").on("change", bSync.reload);
 });
 
-gulp.task("default", gulp.series(["env:set", "react", "watch"]));
-gulp.task("build", gulp.series(["env:set", "react"]));
+gulp.task("default", gulp.series(["env:set", "scripts", "watch"]));
+gulp.task("build", gulp.series(["env:set", "scripts"]));

@@ -6,11 +6,11 @@
  */
 
 // This theme uses wp_nav_menu() in one location.
-if ( ! function_exists( 'register_nav_menus' ) ) {
+// if ( ! function_exists( 'register_nav_menus' ) ) {
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'bulmapress' ),
 		) );
-}
+// }
 
 // Bulmapress navigation
 if ( ! function_exists( 'bulmapress_navigation' ) ) {

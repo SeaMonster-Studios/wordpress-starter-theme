@@ -23,7 +23,8 @@
 </footer><!-- #colophon -->
 </div><!-- #page -->
 
-<?php wp_footer(); ?>
+<div id="react-root"></div>
 
+<?php wp_footer(); ?>
 </body>
 </html>
