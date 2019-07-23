@@ -1,0 +1,59 @@
+{
+  "name": "shopify-frontend-build-system",
+  "version": "2.0.0",
+  "description": "A frontend build system (gulp based) for shopify that works with motifmate",
+  "main": "gulpfile.babel.js",
+  "author": "Logan Call <mail@logancall.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gulp",
+    "start": "gulp",
+    "build": "gulp build --production"
+  },
+  "browserify-shim": {
+    "jquery": "global:jquery"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.4",
+    "@babel/runtime": "^7.5.4",
+    "@emotion/core": "^10.0.14",
+    "babel-eslint": "9.x",
+    "babelify": "^10.0.0",
+    "browser-sync": "^2.23.6",
+    "browserify": "^16.3.0",
+    "browserify-shim": "^3.8.14",
+    "eslint": "5.x",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-flowtype": "2.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "1.5.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-error-boundary": "^1.2.5",
+    "react-scripts": "3.0.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
