@@ -129,7 +129,9 @@ gulp.task("watch", function watch() {
   });
 
   gulp.watch(`src/**`, gulp.series("scripts"));
-  gulp.watch("./*.php").on("change", bSync.reload);
+  gulp
+    .watch(["./*.php", "./**/*.php", "./**/**/*.php", "./**/**/**/*.php"])
+    .on("change", bSync.reload);
 });
 
 gulp.task("default", gulp.series(["env:set", "styles", "scripts", "watch"]));

@@ -22,7 +22,6 @@
 	</div><!-- .container -->
 </footer><!-- #colophon -->
 </div><!-- #page -->
-
 <div id="react-root"></div>
 
 <?php wp_footer(); ?>

@@ -9,15 +9,13 @@
 3. Update `vhost` variable in `gulpfile.babel.js` to match your virtual host.
 4. Run `yarn start` to start dev server with non-minified assets being loaded into site
 
-### Images, Fonts, and No-nos
-
-<!-- // TODO:
-1. update watch view list, check to make sure live reload happens when php files change
--->
-
 ### Setup for production
 
 1. Run `yarn build` to build minified assets
+
+### Images, Fonts, and No-nos
+
+Images, fonts, and other static assets (non-styles, non-scripts) should be placed in the `./assets` directory, and _NOT_ in the `./assets/build` directory. Also be sure to not manually modify anything in the `./assets/build` directory as these are generated files and will be overridden when using the gulp build system.
 
 ## Rebasing with Bulmapress
 
