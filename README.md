@@ -9,6 +9,12 @@
 3. Update `vhost` variable in `gulpfile.babel.js` to match your virtual host.
 4. Run `yarn start` to start dev server with non-minified assets being loaded into site
 
+### Images, Fonts, and No-nos
+
+<!-- // TODO:
+1. update watch view list, check to make sure live reload happens when php files change
+-->
+
 ### Setup for production
 
 1. Run `yarn build` to build minified assets
