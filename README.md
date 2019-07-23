@@ -16,10 +16,12 @@
 ## Rebasing with Bulmapress
 
 1. Rebase latest changes with -xours. The one thing we change.
-2. Replace the files in `src/scripts/bulmapress` with what comes from the rebase in `frontend/js`, except for `customizer.js`. Update `import` statments in `src/scripts/index.js`
-3. Move `customizer.js` from `frontend/js` to `assets` (yes, replace it).
-4. Move `frontend/bulmapress.sass` and `frontend/sass` to `src/styles/`
+2. Replace the files in `./src/scripts/bulmapress` with what comes from the rebase in `./frontend/js`, except for `customizer.js`. Update `import` statments in `./src/scripts/index.js`
+3. Move `customizer.js` from `./frontend/js` to `assets` (yes, replace it).
+4. Move `./frontend/bulmapress.sass` and `./frontend/sass` to `./src/styles/`
 5. Rename `sass` to `bulmapress`, update `@import` statments in `bulmapress.sass`. And replace the `@import "./node_modules/bulma/bulma"` statment with `@import "../../node_modules/bulma/bulma"`
+6. Copy all dependencies found in `frontend/bulmapress/package.json` to `./package.json`
+7. Delete `./frontend` dir.
 
 ## A WordPress flexbox theme
 
