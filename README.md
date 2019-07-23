@@ -4,14 +4,22 @@
 
 ## Usage & Setup
 
-1. Clone theme repo into WordPress install
-2. Setup vhost to end in `.localdev`. This consistency is important and doesn't clash with bonjour on macOS.
+1. Clone theme repo into WordPress install.
+2. Run `yarn` to install dependencies.
+3. Update `vhost` variable in `gulpfile.babel.js` to match your virtual host.
+4. Run `yarn start` to start dev server with non-minified assets being loaded into site
+
+### Setup for production
+
+1. Run `yarn build` to build minified assets
 
 ## Rebasing with Bulmapress
 
 1. Rebase latest changes with -xours. The one thing we change.
-2. Replace the files in `src/scripts/bulmapress` with what comes from the rebase in `frontend/js`, except for `customizer.js`. Update import statments in `src/scripts/index.js`
+2. Replace the files in `src/scripts/bulmapress` with what comes from the rebase in `frontend/js`, except for `customizer.js`. Update `import` statments in `src/scripts/index.js`
 3. Move `customizer.js` from `frontend/js` to `assets` (yes, replace it).
+4. Move `frontend/bulmapress.sass` and `frontend/sass` to `src/styles/`
+5. Rename `sass` to `bulmapress`, update `@import` statments in `bulmapress.sass`. And replace the `@import "./node_modules/bulma/bulma"` statment with `@import "../../node_modules/bulma/bulma"`
 
 ## A WordPress flexbox theme
 

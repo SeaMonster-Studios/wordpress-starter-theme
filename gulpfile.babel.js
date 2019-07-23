@@ -8,6 +8,11 @@ import concat from "gulp-concat";
 import browserify from "browserify";
 import source from "vinyl-source-stream";
 import buffer from "vinyl-buffer";
+import sass from "gulp-sass";
+import rucksack from "gulp-rucksack";
+import cssnano from "gulp-cssnano";
+import bust from "gulp-cache-bust";
+import plumber from "gulp-plumber";
 
 const bSync = browserSync.create();
 
@@ -64,6 +69,48 @@ gulp.task("scripts", function scripts() {
         .pipe(bSync.stream());
 });
 
+gulp.task("styles", () => {
+  let main = gulp
+    .src(["src/styles/index.sass"]) // dev
+    .pipe(
+      plumber(function(error) {
+        gutil.log(
+          gutil.colors.red(`\n\n${error.name}: ${error.message}`),
+          gutil.colors.yellow(
+            `\nPlugin: ${error.plugin}\nFile Name: ${error.fileName}\n`
+          )
+        );
+        this.emit("end");
+      })
+    );
+
+  return process.env.NODE_ENV === "production"
+    ? main
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(sass())
+        .pipe(
+          rucksack({
+            autoprefixer: true
+          })
+        )
+        .pipe(cssnano())
+        .pipe(rename(path => (path.basename += ".min")))
+        .pipe(bust())
+        .pipe(sourcemaps.write("./"))
+        .pipe(gulp.dest(distDir))
+    : main
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(sass())
+        .pipe(
+          rucksack({
+            autoprefixer: true
+          })
+        )
+        .pipe(sourcemaps.write("./"))
+        .pipe(gulp.dest(distDir))
+        .pipe(bSync.stream());
+});
+
 gulp.task("watch", function watch() {
   // Serve files from this project's virtual host that has been configured with the server rendering this site
   bSync.init({
@@ -85,5 +132,5 @@ gulp.task("watch", function watch() {
   gulp.watch("./*.php").on("change", bSync.reload);
 });
 
-gulp.task("default", gulp.series(["env:set", "scripts", "watch"]));
-gulp.task("build", gulp.series(["env:set", "scripts"]));
+gulp.task("default", gulp.series(["env:set", "styles", "scripts", "watch"]));
+gulp.task("build", gulp.series(["env:set", "styles", "scripts"]));
