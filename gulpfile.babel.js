@@ -11,7 +11,7 @@ import buffer from "vinyl-buffer";
 
 const bSync = browserSync.create();
 
-const vhost = "http://wpstart.lmac";
+const vhost = "http://wpstart.localdev";
 
 const distDir = "assets/build";
 
