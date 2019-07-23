@@ -8,7 +8,6 @@
  */
 ?>
 
-<h1>test4</h1>
 <article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?>>
 	<?php if ( has_post_thumbnail() ): ?>
 		<div class="card-image">
