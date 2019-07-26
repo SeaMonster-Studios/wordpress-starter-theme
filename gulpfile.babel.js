@@ -128,7 +128,8 @@ gulp.task("watch", function watch() {
     reloadOnRestart: true
   });
 
-  gulp.watch(`src/**`, gulp.series("scripts"));
+  gulp.watch(`src/scripts/**`, gulp.series("scripts"));
+  gulp.watch(`src/styles/**`, gulp.series("styles"));
   gulp
     .watch(["./*.php", "./**/*.php", "./**/**/*.php", "./**/**/**/*.php"])
     .on("change", bSync.reload);
