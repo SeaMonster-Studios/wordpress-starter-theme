@@ -24,13 +24,13 @@
 	<div id="page" class="site">
 		<?php bulmapress_skip_link_screen_reader_text(); ?>
 		<header id="header">
-			<nav id="site-navigation" class="navbar" role="navigation">
+			<nav id="site-navigation" class="navbar" role="navigation" data-bulma-menu-container>
 				<div class="navbar-brand">
 					<?php bulmapress_home_link('navbar-item'); ?>
 					<?php bulmapress_blog_description('navbar-item is-muted'); ?>
 					<?php bulmapress_menu_toggle(); ?>
 				</div>
-				<div class="navbar-menu">
+				<div class="navbar-menu" data-bulma-menu-menu>
 					<div class="navbar-start"></div>
 					<?php bulmapress_navigation(); ?>
 				</div>

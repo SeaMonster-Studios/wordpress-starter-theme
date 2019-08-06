@@ -41,6 +41,7 @@ if ( ! function_exists( 'bulmapress_menu_toggle' ) ) {
 		$output = '
 			<button id="menu-toggle" class="navbar-burger" 
 				style="border: none; background: inherit; color: inherit; height: auto;" 
+				data-bulma-menu-button
 				aria-controls="primary-menu" aria-expanded="false">
 				<span></span>
 				<span></span>
