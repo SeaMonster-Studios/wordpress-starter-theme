@@ -16,8 +16,7 @@ import plumber from "gulp-plumber";
 
 const bSync = browserSync.create();
 
-const vhost = "http://pike-place-market.sms";
-// const vhost = "http://wpstart.sms";
+const vhost = "http://wpstart.sms";
 
 const distDir = "assets/build";
 
