@@ -22,6 +22,8 @@
 
 <body <?php body_class(); ?>>
 	<div id="page" class="site">
+	<div id="react-mount-1"></div>
+	<div id="react-mount-2"></div>
 		<?php bulmapress_skip_link_screen_reader_text(); ?>
 		<header id="header">
 			<nav id="site-navigation" class="navbar" role="navigation" data-bulma-menu-container>

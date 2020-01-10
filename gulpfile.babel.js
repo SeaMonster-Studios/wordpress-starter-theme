@@ -16,7 +16,8 @@ import plumber from "gulp-plumber";
 
 const bSync = browserSync.create();
 
-const vhost = "http://wpstart.localdev";
+const vhost = "http://pike-place-market.sms";
+// const vhost = "http://wpstart.sms";
 
 const distDir = "assets/build";
 
@@ -30,7 +31,11 @@ gulp.task("env:set", function envSet(done) {
 // https://medium.com/@zymnytskiy/how-to-setup-gulp-with-es7-and-react-41b0dcb73d65
 gulp.task("scripts", function scripts() {
   let main = browserify({
-    entries: `src/scripts/index.js`,
+    entries: [
+      "src/scripts/bulmapress/navigation",
+      "src/scripts/bulmapress/skip-link-focus-fix",
+      "lib/js/src/scripts/Index.bs.js"
+    ],
     debug: true
   })
     .transform("babelify", {

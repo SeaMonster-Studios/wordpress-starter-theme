@@ -16,6 +16,9 @@ yarn-error.log
 # production
 /build
 
+# generated files
+/lib
+
 # misc
 .DS_Store
 .env.local
