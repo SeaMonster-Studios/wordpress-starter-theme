@@ -1,13 +1,13 @@
 ![screenshot.png](screenshot.png)
 
-# Bulmapress + SeaMonster Studios Frontend Build System
+# Bulmapress + SeaMonster Studios Frontend Build System with ReasonML
 
 ## Usage & Setup
 
 1. Clone theme repo into WordPress install.
 2. Run `yarn` to install dependencies.
 3. Update `vhost` variable in `gulpfile.babel.js` to match your virtual host.
-4. Run `yarn start` to start dev server with non-minified assets being loaded into site
+4. Run `yarn start` to start the bucklescript compiler and dev server with non-minified assets being loaded into site
 
 ### Setup for production
 

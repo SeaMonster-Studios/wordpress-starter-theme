@@ -4,7 +4,7 @@
     "react-jsx": 3
   },
   "sources": {
-    "dir": "src",
+    "dir": "src/scripts",
     "subdirs": true
   },
   "package-specs": [
@@ -14,7 +14,10 @@
     }
   ],
   "suffix": ".bs.js",
-  "namespace": true,
   "bs-dependencies": ["reason-react"],
+  "warnings": {
+    "error": "+101"
+  },
+  "namespace": true,
   "refmt": 3
 }
