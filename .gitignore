@@ -15,6 +15,7 @@ yarn-error.log
 
 # production
 /build
+/assets/build
 
 # generated files
 /lib
